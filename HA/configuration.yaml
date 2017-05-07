@@ -1,0 +1,190 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret ha_lat
+  longitude: !secret ha_lon
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret ha_ele
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/New_York
+
+# Show links to resources in log and frontend
+# introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  # api_password: !secret http_pass
+  # Uncomment this if you are using SSL or running in Docker etc
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+# discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Zone list
+# This will override the default home zone
+zone:
+  name: !secret z_name
+  latitude: !secret z_lat
+  longitude: !secret z_lon
+  radius: 50
+  icon: mdi:home
+
+zone 2:
+  name: !secret z2_name
+  latitude: !secret z2_lat
+  longitude: !secret z2_lon
+  radius: 100
+  icon: mdi:school
+
+zone 3:
+  name: !secret z3_name
+  latitude: !secret z3_lat
+  longitude: !secret z3_lon
+  radius: 250
+  icon: mdi:domain
+
+zone 4:
+  name: !secret z4_name
+  latitude: !secret z4_lat
+  longitude: !secret z4_lon
+  radius: 250
+  icon: mdi:domain
+  
+zone 5:
+  name: !secret z5_name
+  latitude: !secret z5_lat
+  longitude: !secret z5_lon
+  radius: 100
+  icon: mdi:pillar
+
+zone 6:
+  name: !secret z6_name
+  latitude: !secret z6_lat
+  longitude: !secret z6_lon
+  radius: 100
+  icon: mdi:dumbbell
+
+zone 7:
+  name: !secret z7_name
+  latitude: !secret z7_lat
+  longitude: !secret z7_lon
+  radius: 100
+  icon: mdi:pillar
+  
+# Weather Prediction
+sensor:
+  platform: yr
+
+# Text to speech
+tts:
+  platform: google
+
+group: !include groups.yaml
+
+weblink: !include weblinks.yaml
+
+# Ecobee Thermostat
+ecobee:
+  api_key: !secret ecobee_api_key
+
+# TP-Link
+switch:
+  - platform: tplink
+    host: 192.168.0.177
+    name: Dinning Room
+  - platform: tplink
+    host: 192.168.0.178
+    name: Foyer
+  - platform: tplink
+    host: 192.168.0.179
+    name: Outside Front
+  - platform: tplink
+    host: 192.168.0.182
+    name: Family Room Back
+  - platform: tplink
+    host: 192.168.0.183
+    name: Family Room Corner
+  - platform: tplink
+    host: 192.168.0.184
+    name: Family Room TV
+  - platform: tplink
+    host: 192.168.0.185
+    name: Family Room Center
+  - platform: tplink
+    host: 192.168.0.186
+    name: Outside Back
+  - platform: tplink
+    host: 192.168.0.187
+    name: Breakfast Nook
+  - platform: tplink
+    host: 192.168.0.189
+    name: Computer Room
+  - platform: tplink
+    host: 192.168.0.190
+    name: Garage
+
+light: 
+  - platform: tplink
+    host: 192.168.0.170
+    name: Kitchen Door 1
+  - platform: tplink
+    host: 192.168.0.171
+    name: Kitchen Door 2
+  - platform: tplink
+    host: 192.168.0.172
+    name: Kitchen Center 1
+  - platform: tplink
+    host: 192.168.0.173
+    name: Kitchen Center 2
+  - platform: tplink
+    host: 192.168.0.174
+    name: Kitchen Center 3
+  - platform: tplink
+    host: 192.168.0.175
+    name: Kitchen End 1
+  - platform: tplink
+    host: 192.168.0.176
+    name: Kitchen End 2
+  - platform: tplink
+    host: 192.168.0.180
+    name: Family Room Left
+  - platform: tplink
+    host: 192.168.0.181
+    name: Family Room Right
+
+# Mosquitto connction to external server for Owntracks
+mqtt:
+  broker: !secret mqqt_broker
+  port: 1883
+  client_id: !secret mqqt_client
+  username: !secret mqqt_un
+  password: !secret mqqt_pw
+
+# Phone Tracking with Owntracks
+device_tracker:
+    - platform: owntracks
+    

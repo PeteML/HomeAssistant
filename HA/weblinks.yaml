@@ -1,0 +1,21 @@
+# Web Links
+  entities:
+    - name: Router
+      url: http://192.168.0.1
+      icon: mdi:book
+    - name: Ecobee
+      url: https://www.ecobee.com/home/ecobeeLogin.jsp
+      icon: mdi:book
+    - name: Alexa
+      url: http://alexa.amazon.com/spa/index.html#cards
+      icon: mdi:book
+    - name: Alexa Skill Testing Tool
+      url: https://echosim.io/      
+      icon: mdi:book
+    - name: YAML Lint
+      url: http://www.yamllint.com/
+      icon: mdi:book
+    - name: Home Assistant Config Info
+      url: https://home-assistant.io/docs/configuration/
+      icon: mdi:book
+      

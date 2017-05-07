@@ -1,0 +1,169 @@
+####VIEWS
+  default_view:
+    view: yes
+    icon: mdi:home 
+    entities:
+      - group.genenviro
+      - group.kitchen
+      - group.family_room
+      - group.family_track
+      - group.site_links
+      - sensor.yr_symbol
+      - sun.sun
+  kitchen_view:
+    view: yes
+    # icon: mdi:stove
+    name: Kitchen
+    entities:
+      - group.kitchen
+  familyroom_view:
+    view: yes
+    # icon: mdi:account-multiple
+    name: Family Room
+    entities:
+      - group.family_room
+      - sensor.sensor_family_room_temperature
+      - binary_sensor.sensor_family_room_occupancy
+  office_view:
+    view: yes
+    name: Office
+    entities:
+      - group.office
+      - sensor.sensor_office_temperature
+      - binary_sensor.sensor_office_occupancy
+  other_rooms_view:
+    view: yes
+    name: Other Rooms
+    entities:
+      - group.foyer
+      - group.dining_room
+      - group.breakfastnook
+      - group.outside
+      - group.garage
+      - group.bedroom
+####GROUPS
+  # default_view:
+    # view: yes
+    # icon: mdi:home 
+    # entities:
+      # - group.kitchen
+      # - group.family_room
+      # - group.office
+      # - group.foyer
+      # - group.dining_room
+      # - group.outside
+      # - group.garage
+      # - group.climate
+      # - group.site_links
+      # - group.family_track 
+  kitchen:
+    name: Kitchen
+    icon: mdi:stove
+    view: no
+    entities:
+      - light.kitchen_center_1
+      - light.kitchen_center_2
+      - light.kitchen_center_3
+      - light.kitchen_door_1
+      - light.kitchen_door_2
+      - light.kitchen_end_1
+      - light.kitchen_end_2
+  family_room:
+    name: Family Room
+    icon: mdi:sofa
+    view: no
+    entities:
+      - switch.family_room_back
+      - switch.family_room_center
+      - switch.family_room_corner
+      - switch.family_room_tv
+      - light.family_room_left
+      - light.family_room_right
+  dining_room:
+    name: Dining Room
+    # icon: mdi:account-multiple
+    view: no
+    entities:
+      - switch.dinning_room
+  breakfastnook:
+    name: Breakfast Nook
+    icon: mdi:food-variant
+    view: no
+    entities:
+      - switch.breakfast_nook
+  foyer:
+    name: Foyer
+    icon: mdi:glassdoor
+    view: no
+    entities:
+      - switch.foyer
+  office:
+    name: Office
+    # icon: mdi:account-multiple
+    view: no
+    entities:
+      - switch.computer_room
+  outside:
+    name: Outside
+    icon: mdi:tree
+    view: no
+    entities:
+      - switch.outside_back
+      - switch.outside_front
+  garage:
+    name: Garage
+    # icon: mdi:car
+    view: no
+    entities:
+      - switch.garage
+  environment:
+    name: Environment
+    # icon: mdi:cloud-print-outline
+    view: no
+    entities:
+      - climate.loach_house
+      - sensor.loach_house_humidity
+      - sensor.loach_house_temperature
+      - binary_sensor.loach_house_occupancy
+      - sensor.sensor_bedroom_temperature
+      - binary_sensor.sensor_bedroom_occupancy
+      - sensor.sensor_family_room_temperature
+      - binary_sensor.sensor_family_room_occupancy
+      - sensor.sensor_office_temperature
+      - binary_sensor.sensor_office_occupancy
+  genenviro:
+    name: General Environment
+    # icon: mdi:cloud-print-outline
+    view: no
+    entities:
+      - climate.loach_house
+      - sensor.loach_house_humidity
+      - sensor.loach_house_temperature
+      - sensor.sensor_bedroom_temperature
+      - sensor.sensor_family_room_temperature
+      - sensor.sensor_office_temperature
+  bedroom:
+    name: Bedroom Info
+    # icon: mdi:cloud-print-outline
+    view: no
+    entities:
+      - sensor.sensor_bedroom_temperature
+      - binary_sensor.sensor_bedroom_occupancy
+  site_links:
+    name: Website links
+    icon: mdi:account-multiple
+    view: no
+    entities:
+      - weblink.alexa
+      - weblink.alexa_skill_testing_tool
+      - weblink.ecobee
+      - weblink.router
+      - weblink.yaml_lint
+  family_track:
+    name: Loach Family
+    icon: mdi:account-multiple
+    view: no
+    entities:
+      - device_tracker.lhcontrol_deecell
+      - device_tracker.lhcontrol_petecell1
+      - device_tracker.lhcontrol_petecell2
